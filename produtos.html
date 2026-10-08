@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -5,76 +6,171 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 20px;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            margin-top: 20px;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+            padding: 12px;
+        }
+
+        td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        tr:hover {
+            background-color: #eee;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            width: 400px;
+            border-radius: 10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        a {
+            color: blue;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
 
     <header>
         <h1>Nossos Produtos</h1>
-    </header><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>produtos</title>
-</head>
-<body><h1>Nossos produtos</h1>
-    <H2>produto 1</H2>
-    <p>protudo de qualidade otima tndo 2 tera</p>
-    <p>preço R$ 25 reais</p>
+    </header>
 
-    <h2>produto 2</h2>
-    <p>qualidade da melhor possivel muito proucurada no mercado</p>
-    <p>preço 30 reais e 50 centavos</p>
-    
-    <h2>produto 3</h2>
-    <p>ele tem uma boa qualidade otimo para viagens e muito mais</p>
-    <p>preço 20 reais e 50 centavos</p>
-    <table border="1">
-<tr>
- <th>produto</th>
- <th>preço</th>
- <th>quantidade</th>
-</tr>
-<tr>
-    <td>produto 1</td>
-    <td>R$ 25,00</td>
-    <td>7 unidades</td>
-</tr>
-<tr>
-    <td>produto 2</td>
-    <td>R$ 30,50</td>
-    <td>5 pares</td>
-</tr>
-<tr>
-    <td>produto 3</td>
-    <td>R$ 20,50</td>
-    <td>6 unidades</td>
-</tr>
-</table>
-    <p><a href="http://127.0.0.1:5500/index.html">curriculo</a></p>
-    <br>
+    <h2>Produto 1</h2>
+    <p>Produto de ótima qualidade, tendo 2 tera.</p>
+    <p>Preço: R$ 25,00</p>
+
+    <h2>Produto 2</h2>
+    <p>Qualidade da melhor possível, muito procurada no mercado.</p>
+    <p>Preço: R$ 30,50</p>
+
+    <h2>Produto 3</h2>
+    <p>Ele tem uma boa qualidade, ótimo para viagens e muito mais.</p>
+    <p>Preço: R$ 20,50</p>
+
+    <table>
+
+        <tr>
+            <th>Produto</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+        </tr>
+
+        <tr>
+            <td>Produto 1</td>
+            <td>R$ 25,00</td>
+            <td>7 unidades</td>
+        </tr>
+
+        <tr>
+            <td>Produto 2</td>
+            <td>R$ 30,50</td>
+            <td>5 pares</td>
+        </tr>
+
+        <tr>
+            <td>Produto 3</td>
+            <td>R$ 20,50</td>
+            <td>6 unidades</td>
+        </tr>
+
+    </table>
+
+    <p>
+        <a href="http://127.0.0.1:5500/index.html">Currículo</a>
+    </p>
+
     <hr>
-    <br>
 
     <h2>Formulário</h2>
 
     <form action="" method="post">
+
         <label for="nome">Nome:</label><br>
-        <input type="text" id="nome" name="nome" required><br><br>
+        <input type="text" id="nome" name="nome" required>
+
+        <br><br>
 
         <label for="email">E-mail:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
+        <input type="email" id="email" name="email" required>
+
+        <br><br>
 
         <label for="senha">Senha:</label><br>
-        <input type="password" id="senha" name="senha" required><br><br>
+        <input type="password" id="senha" name="senha" required>
+
+        <br><br>
 
         <label for="mensagem">Mensagem:</label><br>
-        <textarea id="mensagem" name="mensagem" rows="5" cols="30" required></textarea><br><br>
+        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+        <br><br>
 
         <input type="submit" value="Enviar">
+
     </form>
+
 </body>
+
 </html>
 
-  
