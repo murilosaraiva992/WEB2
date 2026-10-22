@@ -1,45 +1,213 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Currículo</title><center><h1>Murilo saraiva dos santos</h1>
-    murilosaraiva992@gmail.com
-    <br>
-    +55 (85)9411-2145
-    </center>
-    <hr>
-    <h1>Objetivo</h1>
-    <p>manutenção de computador</p>
-    <br>
-    <hr>
-    <h1>Formação</h1> 
-    <p>ensino medio completo <a href="https://qedu.org.br/escola/23323418-eeep-paulo-petrola">EEEP Paulo Petrola</a> 2026-2028</p>
-    <br>
-    <p>ensino superior em informática <a href="https://portal.ifce.edu.br/">IFCE</a>2028-2032</p>
-    <hr>
-    <h1>Cursos e Formações</h1>
-    <p>Curso tecnico em informática <a href="https://qedu.org.br/escola/23323418-eeep-paulo-petrola">EEEP Paulo Petrola</a> 2026-2028</p>
-    <hr>
-    <h1>Experiência</h1>
-    <li>1 ano como estagiário</li>
-    <li>1 ano como junior</li>
-    <li>2 anos como senior</li>
-    3 anos como plenior
-    <hr>
-    <h1>outros</h1>
-    <p>possui carteira de motorista</p>
-    <hr>
-    <h1>sites</h1>
-    <br>
-    <p><a href="http://127.0.0.1:5500/sobre.html">Sobre</a></p>
-    <p><a href="http://127.0.0.1:5500/contatenos.html">Contate-nos</a></p>
-    <p><a href="http://127.0.0.1:5500/parceiros.html">parceiros</a></p>
-    <p><a href="http://127.0.0.1:5500/portifolio.html">portifoilo</a></p>
-    <p><a href="http://127.0.0.1:5500/produtos.html">produtos</a></p>
-    <p><a href="http://127.0.0.1:5500/servi%C3%A7os.html">serviço</a></p>
+
+    <title>Currículo - Murilo</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #263b55;
+            border-bottom: 2px solid #263b55;
+            padding-bottom: 5px;
+        }
+
+        header {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-bottom: 2px solid #263b55;
+            border-radius: 10px 10px 0 0;
+        }
+
+        header h1 {
+            border-bottom: none;
+        }
+
+        .container {
+            display: flex;
+            min-height: 70vh;
+            background-color: white;
+        }
+
+        aside {
+            width: 25%;
+            padding: 20px;
+            background-color: #dce8f5;
+            border-right: 2px solid #999;
+        }
+
+        aside h2 {
+            color: #263b55;
+        }
+
+        aside a {
+            display: block;
+            margin-bottom: 15px;
+            color: #1769aa;
+            text-decoration: none;
+        }
+
+        aside a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            flex: 1;
+            padding: 25px;
+            background-color: white;
+            min-width: 0;
+        }
+
+        main a {
+            color: #1769aa;
+            text-decoration: none;
+        }
+
+        main a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #263b55;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid #111827;
+            border-radius: 0 0 10px 10px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            aside {
+                width: 100%;
+                border-right: none;
+                border-bottom: 2px solid #999;
+            }
+
+            main {
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    
+
+    <header>
+        <h1>Murilo Saraiva dos Santos</h1>
+        <p>murilosaraiva992@gmail.com</p>
+        <p>Telefone: +55 (85) 9411-2145</p>
+    </header>
+
+    <div class="container">
+
+        <aside>
+            <h2>Sites</h2>
+
+            <a href="sobre.html">Sobre</a>
+            <a href="contatenos.html">Contate-nos</a>
+            <a href="parceiros.html">Parceiros</a>
+            <a href="portifolio.html">Portfólio</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="serviços.html">Serviços</a>
+        </aside>
+
+        <main>
+
+            <section id="objetivo">
+                <h1>Objetivo</h1>
+                <p>Manutenção de computadores.</p>
+            </section>
+
+            <hr>
+
+            <section id="formacao">
+                <h1>Formação</h1>
+
+                <p>
+                    Ensino médio —
+                    <a href="https://qedu.org.br/escola/23323418-eeep-paulo-petrola">
+                        EEEP Paulo Petrola
+                    </a>
+                    (2026–2028).
+                </p>
+
+                <p>
+                    Ensino superior em Informática —
+                    <a href="https://portal.ifce.edu.br/">
+                        IFCE
+                    </a>
+                    (2028–2032).
+                </p>
+            </section>
+
+            <hr>
+
+            <section id="cursos">
+                <h1>Cursos e Formações</h1>
+
+                <p>
+                    Curso técnico em Informática —
+                    <a href="https://qedu.org.br/escola/23323418-eeep-paulo-petrola">
+                        EEEP Paulo Petrola
+                    </a>
+                    (2026–2028).
+                </p>
+            </section>
+
+            <hr>
+
+            <section id="experiencia">
+                <h1>Experiência</h1>
+
+                <ul>
+                    <li>1 ano como estagiário.</li>
+                    <li>1 ano como júnior.</li>
+                    <li>2 anos como sênior.</li>
+                    <li>3 anos como pleno.</li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <section id="outros">
+                <h1>Outros</h1>
+                <p>Possui carteira de motorista.</p>
+            </section>
+
+        </main>
+
+    </div>
+
+    <footer>
+        <p>Currículo de Murilo Saraiva dos Santos</p>
+    </footer>
+
 </body>
 </html>

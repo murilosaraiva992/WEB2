@@ -1,72 +1,493 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio - Técnico em Informática</title>
+
+    <title>Portfólio - TECH Informática</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* CABEÇALHO */
+        header {
+            background-color: #172b46;
+            color: white;
+            padding: 20px 7%;
+        }
+
+        .topo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #60a5fa;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #60a5fa;
+        }
+
+        /* BANNER */
+        .banner {
+            background-color: #172b46;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            border-top: 1px solid #354b68;
+        }
+
+        .banner h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .banner p {
+            color: #dce8f5;
+        }
+
+        /* CONTEÚDO */
+        main {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .titulo {
+            text-align: center;
+            color: #172b46;
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .descricao {
+            text-align: center;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        /* SOBRE MIM */
+        .sobre {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #00000010;
+            margin-bottom: 45px;
+            border-left: 5px solid #3b82f6;
+        }
+
+        .sobre h2 {
+            color: #172b46;
+            margin-bottom: 15px;
+        }
+
+        .sobre p {
+            margin-bottom: 12px;
+        }
+
+        /* PROJETOS */
+        .projetos {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .cartao {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px #00000010;
+            transition: transform 0.2s;
+        }
+
+        .cartao:hover {
+            transform: translateY(-5px);
+        }
+
+        .imagem-projeto {
+            height: 160px;
+            background-color: #dce8f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 55px;
+        }
+
+        .cartao-conteudo {
+            padding: 22px;
+        }
+
+        .cartao h3 {
+            color: #172b46;
+            margin-bottom: 10px;
+        }
+
+        .cartao p {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .tecnologia {
+            display: inline-block;
+            background-color: #dce8f5;
+            color: #172b46;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* HABILIDADES */
+        .habilidades {
+            background-color: #172b46;
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 45px;
+        }
+
+        .habilidades h2 {
+            text-align: center;
+            margin-bottom: 22px;
+        }
+
+        .lista-habilidades {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .habilidade {
+            background-color: #2c4565;
+            border: 1px solid #526780;
+            padding: 10px 15px;
+            border-radius: 6px;
+        }
+
+        /* CONTATO */
+        .contato {
+            background-color: #e7edf5;
+            padding: 35px 20px;
+            margin-top: 40px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .contato h2 {
+            color: #172b46;
+            margin-bottom: 12px;
+        }
+
+        .contato p {
+            margin-bottom: 10px;
+            overflow-wrap: anywhere;
+        }
+
+        .botao {
+            display: inline-block;
+            background-color: #2563eb;
+            color: white;
+            text-decoration: none;
+            padding: 12px 22px;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-top: 12px;
+        }
+
+        .botao:hover {
+            background-color: #172b46;
+        }
+
+        /* RODAPÉ */
+        footer {
+            background-color: #172b46;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 50px;
+        }
+
+        footer a {
+            color: #93c5fd;
+            text-decoration: none;
+        }
+
+        /* TABLETS */
+        @media (max-width: 850px) {
+            .projetos {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        /* CELULARES */
+        @media (max-width: 600px) {
+            header {
+                padding: 20px;
+            }
+
+            .topo {
+                flex-direction: column;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .banner h1 {
+                font-size: 30px;
+            }
+
+            .projetos {
+                grid-template-columns: 1fr;
+            }
+
+            .sobre {
+                padding: 22px;
+            }
+
+            .habilidades {
+                padding: 22px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
+    <!-- CABEÇALHO E MENU -->
     <header>
-        <h1>Meu Portfólio</h1>
-        <p>Técnico em Informática | Suporte | Desenvolvimento de Jogos 2D</p>
-        <hr>
+        <div class="topo">
+
+            <div class="logo">
+                TECH <span>INFORMÁTICA</span>
+            </div>
+
+            <nav>
+                <a href="index.html">Início</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="portifolio.html">Portfólio</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="serviços.html">Serviços</a>
+                <a href="parceiros.html">Parceiros</a>
+                <a href="contatenos.html">Contato</a>
+            </nav>
+
+        </div>
     </header>
 
+    <!-- BANNER -->
+    <section class="banner">
+        <h1>Meu Portfólio</h1>
+
+        <p>
+            Técnico em Informática | Suporte |
+            Desenvolvimento de Jogos 2D
+        </p>
+    </section>
+
     <main>
-        <section>
+
+        <!-- SOBRE MIM -->
+        <section class="sobre">
+
             <h2>Sobre Mim</h2>
+
             <p>
-                Olá! Sou estudante de Lógica de Programação e apaixonado por tecnologia.
-                Trabalho com venda, conserto e suporte para computadores e estou 
-                desenvolvendo meu primeiro jogo 2D com máquina de estados em GDScript.
+                Olá! Sou estudante de Lógica de Programação
+                e apaixonado por tecnologia.
             </p>
-            <p>Busco minha primeira oportunidade na área de TI.</p>
+
+            <p>
+                Tenho interesse em suporte técnico para computadores
+                e estou desenvolvendo meu primeiro jogo 2D com
+                máquina de estados usando GDScript.
+            </p>
+
+            <p>
+                Busco minha primeira oportunidade na área de
+                Tecnologia da Informação para aprender e desenvolver
+                minhas habilidades.
+            </p>
+
         </section>
 
-        <hr>
+        <!-- PROJETOS -->
+        <section id="projetos">
 
-        <section>
-            <h2>Meus Projetos</h2>
-            <table border="1" cellpadding="10">
-                <tr>
-                    <th>Projeto</th>
-                    <th>Tecnologia</th>
-                    <th>Descrição</th>
-                </tr>
-                <tr>
-                    <td>Site TechHelp</td>
-                    <td>HTML5</td>
-                    <td>Site para empresa de conserto e venda de computadores.</td>
-                </tr>
-                <tr>
-                    <td>Máquina de Estados 2D</td>
-                    <td>Godot / GDScript</td>
-                    <td>Sistema de movimentação com estados idle, walk e run.</td>
-                </tr>
-                <tr>
-                    <td>Exercícios de Lógica</td>
-                    <td>Portugol</td>
-                    <td>Estudos de condicionais e laços de repetição.</td>
-                </tr>
-            </table>
+            <h2 class="titulo">Meus Projetos</h2>
+
+            <p class="descricao">
+                Conheça alguns dos meus estudos e projetos de tecnologia.
+            </p>
+
+            <div class="projetos">
+
+                <article class="cartao">
+
+                    <div class="imagem-projeto">🌐</div>
+
+                    <div class="cartao-conteudo">
+
+                        <h3>Site TechHelp</h3>
+
+                        <p>
+                            Desenvolvimento de um site para uma empresa
+                            de informática, com páginas de apresentação,
+                            produtos, parceiros e contato.
+                        </p>
+
+                        <span class="tecnologia">HTML5</span>
+                        <span class="tecnologia">CSS</span>
+
+                    </div>
+
+                </article>
+
+                <article class="cartao">
+
+                    <div class="imagem-projeto">🎮</div>
+
+                    <div class="cartao-conteudo">
+
+                        <h3>Máquina de Estados 2D</h3>
+
+                        <p>
+                            Projeto de jogo 2D com estados de animação
+                            e movimentação, incluindo idle, walk e run.
+                        </p>
+
+                        <span class="tecnologia">Godot</span>
+                        <span class="tecnologia">GDScript</span>
+
+                    </div>
+
+                </article>
+
+                <article class="cartao">
+
+                    <div class="imagem-projeto">🐍</div>
+
+                    <div class="cartao-conteudo">
+
+                        <h3>Exercícios de Lógica</h3>
+
+                        <p>
+                            Estudos de algoritmos, condicionais,
+                            estruturas de repetição e resolução
+                            de problemas.
+                        </p>
+
+                        <span class="tecnologia">Portugol</span>
+                        <span class="tecnologia">Lógica</span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
         </section>
 
-        <hr>
+        <!-- HABILIDADES -->
+        <section class="habilidades">
 
-        <section>
-            <h2>Currículo</h2>
-            <p><strong>Habilidades:</strong> Formatação, Remoção de Vírus, Montagem e Manutenção, Lógica de Programação, HTML5, Godot</p>
-            <p><strong>Contato:</strong> (85) 4521-1543 </p>
-            <p><strong>Email:</strong>murilosaraiva992@gmail.com</p>
+            <h2>Minhas Habilidades</h2>
+
+            <div class="lista-habilidades">
+
+                <span class="habilidade">HTML5</span>
+                <span class="habilidade">CSS</span>
+                <span class="habilidade">Lógica de Programação</span>
+                <span class="habilidade">Portugol</span>
+                <span class="habilidade">Godot</span>
+                <span class="habilidade">GDScript</span>
+                <span class="habilidade">Manutenção de Computadores</span>
+                <span class="habilidade">Formatação</span>
+
+            </div>
+
         </section>
+
+        <!-- CONTATO -->
+        <section class="contato">
+
+            <h2>Vamos conversar?</h2>
+
+            <p>
+                Tem alguma dúvida ou deseja entrar em contato?
+            </p>
+
+            <a href="contatenos.html" class="botao">
+                Entre em contato
+            </a>
+
+            <p style="margin-top: 20px;">
+                <strong>E-mail:</strong>
+                murilosaraiva992@gmail.com
+            </p>
+
+            <p>
+                <strong>Telefone:</strong>
+                (85) 4521-1543
+            </p>
+
+        </section>
+
+        <!-- CURRÍCULO -->
+        <section style="text-align: center; margin-top: 30px;">
+            <a href="index.html">Voltar ao currículo</a>
+        </section>
+
     </main>
 
-    <hr>
-
+    <!-- RODAPÉ -->
     <footer>
-        <p>&copy; 2026 - Meu Portfólio</p>
+        <p>
+            &copy; 2026 - Meu Portfólio
+        </p>
+
+        <p>
+            TECH Informática - Todos os direitos reservados.
+        </p>
     </footer>
-<p><a href="http://127.0.0.1:5500/index.html">curriculo</a></p>
+
 </body>
+
 </html>

@@ -5,88 +5,390 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contate-nos</title>
+
+    <title>Contate-nos - TECH Informática</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* CABEÇALHO */
+        header {
+            background-color: #172b46;
+            color: white;
+            padding: 20px 7%;
+        }
+
+        .topo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #60a5fa;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #60a5fa;
+        }
+
+        /* BANNER */
+        .banner {
+            background-color: #172b46;
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+            border-top: 1px solid #354b68;
+        }
+
+        .banner h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .banner p {
+            color: #dce8f5;
+        }
+
+        /* CONTEÚDO PRINCIPAL */
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .introducao {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .introducao h2 {
+            color: #172b46;
+            margin-bottom: 8px;
+        }
+
+        .conteudo {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 25px;
+            align-items: start;
+        }
+
+        /* FORMULÁRIO */
+        .formulario {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #00000010;
+        }
+
+        .formulario h2 {
+            color: #172b46;
+            margin-bottom: 22px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            margin-bottom: 18px;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: 2px solid #60a5fa;
+            border-color: #2563eb;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #172b46;
+        }
+
+        /* CARTÕES DE CONTATO */
+        .cartoes {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+        }
+
+        .cartao {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px #00000010;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .icone {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .cartao h3 {
+            color: #172b46;
+            margin-bottom: 8px;
+        }
+
+        .cartao p {
+            color: #555;
+            overflow-wrap: anywhere;
+        }
+
+        .cartao a {
+            color: #2563eb;
+            overflow-wrap: anywhere;
+        }
+
+        /* CURRÍCULO */
+        .curriculo {
+            text-align: center;
+            margin-top: 35px;
+        }
+
+        .curriculo a {
+            display: inline-block;
+            background-color: #dce8f5;
+            color: #172b46;
+            padding: 12px 22px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .curriculo a:hover {
+            background-color: #c5d8ef;
+        }
+
+        /* RODAPÉ */
+        footer {
+            background-color: #172b46;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            margin-top: 50px;
+        }
+
+        /* ADAPTAÇÃO PARA CELULAR */
+        @media (max-width: 700px) {
+            .topo {
+                flex-direction: column;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .banner h1 {
+                font-size: 29px;
+            }
+
+            .conteudo {
+                grid-template-columns: 1fr;
+            }
+
+            .formulario {
+                padding: 22px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
+    <!-- CABEÇALHO E MENU -->
     <header>
-        <h1>Contate-nos</h1>
-        <p>Entre em contato conosco preenchendo o formulário abaixo:</p>
+        <div class="topo">
+
+            <div class="logo">
+                TECH <span>INFORMÁTICA</span>
+            </div>
+
+            <nav>
+                <a href="index.html">Início</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="portifolio.html">Portfólio</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="serviços.html">Serviços</a>
+                <a href="parceiros.html">Parceiros</a>
+                <a href="contatenos.html">Contato</a>
+            </nav>
+
+        </div>
     </header>
 
+    <!-- BANNER -->
+    <section class="banner">
+        <h1>Vamos conversar?</h1>
+        <p>
+            Precisa de ajuda com seu computador?
+            Entre em contato conosco.
+        </p>
+    </section>
+
+    <!-- CONTEÚDO -->
     <main>
 
-        <section>
-            <h2>Formulário de contato</h2>
-
-            <form action="#" method="post">
-
-                <label for="nome">Nome:</label><br>
-                <input
-                    type="text"
-                    id="nome"
-                    name="nome"
-                    placeholder="Digite seu nome"
-                    required
-                >
-
-                <br><br>
-
-                <label for="email">E-mail:</label><br>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Digite seu e-mail"
-                    required
-                >
-
-                <br><br>
-
-                <label for="assunto">Assunto:</label><br>
-                <input
-                    type="text"
-                    id="assunto"
-                    name="assunto"
-                    placeholder="Digite o assunto"
-                    required
-                >
-
-                <br><br>
-
-                <label for="mensagem">Mensagem:</label><br>
-                <textarea
-                    id="mensagem"
-                    name="mensagem"
-                    rows="6"
-                    cols="40"
-                    placeholder="Digite sua mensagem"
-                    required
-                ></textarea>
-
-                <br><br>
-
-                <button type="submit">Enviar</button>
-
-            </form>
+        <section class="introducao">
+            <h2>Estamos aqui para ajudar!</h2>
+            <p>
+                Preencha o formulário e conte como podemos ajudar você.
+            </p>
         </section>
 
-        <section>
-            <h2>Currículo</h2>
+        <div class="conteudo">
 
-            <p>
-                <a href="index.html">Acesse meu currículo</a>
-            </p>
+            <!-- FORMULÁRIO -->
+            <section class="formulario">
+
+                <h2>Envie sua mensagem</h2>
+
+                <form action="#" method="post">
+
+                    <label for="nome">Nome completo:</label>
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        placeholder="Digite seu nome"
+                        required
+                    >
+
+                    <label for="email">E-mail:</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="seuemail@exemplo.com"
+                        required
+                    >
+
+                    <label for="assunto">Assunto:</label>
+                    <input
+                        type="text"
+                        id="assunto"
+                        name="assunto"
+                        placeholder="Sobre o que deseja falar?"
+                        required
+                    >
+
+                    <label for="mensagem">Mensagem:</label>
+                    <textarea
+                        id="mensagem"
+                        name="mensagem"
+                        rows="6"
+                        placeholder="Escreva sua mensagem..."
+                        required
+                    ></textarea>
+
+                    <button type="submit">Enviar mensagem</button>
+
+                </form>
+
+            </section>
+
+            <!-- OUTRAS FORMAS DE CONTATO -->
+            <section class="cartoes">
+
+                <div class="cartao">
+                    <div class="icone">✉️</div>
+                    <h3>E-mail</h3>
+                    <p>
+                        <a href="mailto:murilosaraiva992@gmail.com">
+                            murilosaraiva992@gmail.com
+                        </a>
+                    </p>
+                </div>
+
+                <div class="cartao">
+                    <div class="icone">📍</div>
+                    <h3>Localização</h3>
+                    <p>Fortaleza - CE</p>
+                </div>
+
+                <div class="cartao">
+                    <div class="icone">💻</div>
+                    <h3>Atendimento</h3>
+                    <p>
+                        Computadores, notebooks e acessórios.
+                    </p>
+                </div>
+
+            </section>
+
+        </div>
+
+        <!-- LINK PARA O CURRÍCULO -->
+        <section class="curriculo">
+            <a href="index.html">Acessar meu currículo</a>
         </section>
 
     </main>
 
+    <!-- RODAPÉ -->
     <footer>
-        <p>&copy;Contate-nos</p>
+        <p>
+            &copy; 2026 TECH Informática -
+            Todos os direitos reservados.
+        </p>
     </footer>
 
 </body>
 
 </html>
-

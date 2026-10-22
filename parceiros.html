@@ -1,61 +1,423 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parceiros</title>
+
+    <title>Parceiros - TECH Informática</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* CABEÇALHO */
+        header {
+            background-color: #172b46;
+            color: white;
+            padding: 20px 7%;
+        }
+
+        .topo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #60a5fa;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #60a5fa;
+        }
+
+        /* BANNER */
+        .banner {
+            background-color: #172b46;
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+            border-top: 1px solid #354b68;
+        }
+
+        .banner h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .banner p {
+            color: #dce8f5;
+        }
+
+        /* CONTEÚDO */
+        main {
+            max-width: 1150px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .introducao {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .introducao h2 {
+            color: #172b46;
+            font-size: 27px;
+            margin-bottom: 10px;
+        }
+
+        .introducao p {
+            color: #555;
+        }
+
+        /* CARTÕES */
+        .parceiros {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        .cartao {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px #00000010;
+            transition: transform 0.2s;
+        }
+
+        .cartao:hover {
+            transform: translateY(-5px);
+        }
+
+        .cartao img {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            padding: 15px;
+            background-color: white;
+            display: block;
+        }
+
+        .cartao-conteudo {
+            padding: 22px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .cartao h3 {
+            color: #172b46;
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .cartao p {
+            color: #555;
+            margin-bottom: 18px;
+        }
+
+        .categoria {
+            display: inline-block;
+            background-color: #dce8f5;
+            color: #172b46;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        /* SEÇÃO FINAL */
+        .convite {
+            background-color: #e7edf5;
+            text-align: center;
+            padding: 35px 20px;
+            margin-top: 45px;
+            border-radius: 10px;
+        }
+
+        .convite h2 {
+            color: #172b46;
+            margin-bottom: 10px;
+        }
+
+        .convite p {
+            margin-bottom: 20px;
+        }
+
+        .botao {
+            display: inline-block;
+            background-color: #2563eb;
+            color: white;
+            text-decoration: none;
+            padding: 12px 22px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .botao:hover {
+            background-color: #172b46;
+        }
+
+        /* CURRÍCULO */
+        .curriculo {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .curriculo a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .curriculo a:hover {
+            text-decoration: underline;
+        }
+
+        /* RODAPÉ */
+        footer {
+            background-color: #172b46;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            margin-top: 50px;
+        }
+
+        /* TABLETS */
+        @media (max-width: 850px) {
+            .parceiros {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .banner h1 {
+                font-size: 30px;
+            }
+        }
+
+        /* CELULARES */
+        @media (max-width: 600px) {
+            header {
+                padding: 20px;
+            }
+
+            .topo {
+                flex-direction: column;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .parceiros {
+                grid-template-columns: 1fr;
+            }
+
+            .cartao img {
+                height: 230px;
+            }
+
+            .banner h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
+    <!-- CABEÇALHO E MENU -->
     <header>
-        <h1>Parceiros</h1>
+        <div class="topo">
+
+            <div class="logo">
+                TECH <span>INFORMÁTICA</span>
+            </div>
+
+            <nav>
+                <a href="index.html">Início</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="portifolio.html">Portfólio</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="serviços.html">Serviços</a>
+                <a href="parceiros.html">Parceiros</a>
+                <a href="contatenos.html">Contato</a>
+            </nav>
+
+        </div>
     </header>
 
+    <!-- BANNER -->
+    <section class="banner">
+        <h1>Nossos Parceiros</h1>
+        <p>
+            Conheça os fornecedores e as empresas
+            relacionados ao nosso trabalho.
+        </p>
+    </section>
+
+    <!-- CONTEÚDO PRINCIPAL -->
     <main>
-        <section>
+
+        <section class="introducao">
+            <h2>Quem está conosco</h2>
+
             <p>
-                Distribuidoras<br>
-                Pessoas vendendo<br>
-                Microsoft
+                Conheça algumas das categorias de fornecedores
+                e empresas importantes para a área de informática.
             </p>
         </section>
 
-        <section>
-            <table border="1" cellpadding="25" cellspacing="6">
-                <tr>
-                    <td>
-                        <b>Distribuidoras</b>
-                        <br><br>
-                        <img src="tecnologia.png" alt="tecnologia" width="200" height="250">
-                        <br><br>
-                        Confiável, fácil de achar, qualidade boa.
-                    </td>
-                    <td>
-                        <b>Pessoas vendendo</b>
-                        <br><br>
-                        <img src="pessoas vendendo.png" alt="pessoas vendendo" width="250" height="250">
-                        <br><br>
-                        Sem confiança, qualidade ruim.
-                    </td>
-                    <td>
-                        <b>Microsoft</b>
-                        <br><br>
-                        <img src="microsoft.png" alt="Microsoft" width="250" height="250">
-                        <br><br>
-                        Muita confiança, ótima qualidade.
-                    </td>
-                </tr>
-            </table>
+        <!-- CARTÕES DE PARCEIROS -->
+        <section class="parceiros">
+
+            <article class="cartao">
+
+                <img
+                    src="tecnologia.png"
+                    alt="Imagem representando tecnologia e componentes de informática"
+                >
+
+                <div class="cartao-conteudo">
+
+                    <span class="categoria">Fornecedores</span>
+
+                    <h3>Distribuidoras</h3>
+
+                    <p>
+                        Podem oferecer variedade de produtos,
+                        disponibilidade de peças e componentes
+                        para computadores.
+                    </p>
+
+                </div>
+
+            </article>
+
+            <article class="cartao">
+
+                <img
+                    src="pessoas vendendo.png"
+                    alt="Imagem representando pessoas vendendo produtos"
+                >
+
+                <div class="cartao-conteudo">
+
+                    <span class="categoria">Vendedores</span>
+
+                    <h3>Pessoas vendendo</h3>
+
+                    <p>
+                        Vendedores independentes podem oferecer
+                        equipamentos e acessórios. É importante
+                        verificar a procedência e a qualidade
+                        antes de comprar.
+                    </p>
+
+                </div>
+
+            </article>
+
+            <article class="cartao">
+
+                <img
+                    src="microsoft.png"
+                    alt="Logotipo da Microsoft"
+                >
+
+                <div class="cartao-conteudo">
+
+                    <span class="categoria">Tecnologia</span>
+
+                    <h3>Microsoft</h3>
+
+                    <p>
+                        Empresa de tecnologia conhecida por
+                        produtos como Windows, Microsoft 365
+                        e outras soluções digitais.
+                    </p>
+
+                    <a
+                        href="https://www.microsoft.com/pt-br/"
+                        class="botao"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Site oficial
+                    </a>
+
+                </div>
+
+            </article>
+
         </section>
 
-        <section>
-            <p><a href="index.html">Currículo</a></p>
+        <!-- CONVITE -->
+        <section class="convite">
+
+            <h2>Quer entrar em contato?</h2>
+
+            <p>
+                Acesse nossa página de contato para enviar
+                uma mensagem.
+            </p>
+
+            <a href="contatenos.html" class="botao">
+                Fale Conosco
+            </a>
+
         </section>
+
+        <!-- CURRÍCULO -->
+        <section class="curriculo">
+
+            <p>
+                <a href="index.html">Voltar ao currículo</a>
+            </p>
+
+        </section>
+
     </main>
 
+    <!-- RODAPÉ -->
     <footer>
-        <p>Parceiros</p>
+        <p>
+            &copy; 2026 TECH Informática -
+            Todos os direitos reservados.
+        </p>
     </footer>
 
 </body>
+
 </html>
+
