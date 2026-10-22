@@ -5,57 +5,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Serviços - TECH Informática</title>
 
     <style>
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         body {
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
             color: #333;
+            margin: 0;
+            padding: 20px;
             line-height: 1.6;
         }
 
-        /* CABEÇALHO */
         header {
             background-color: #172b46;
             color: white;
-            padding: 20px 7%;
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
         }
 
-        .topo {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .logo {
-            font-size: 23px;
-            font-weight: bold;
-        }
-
-        .logo span {
-            color: #60a5fa;
+        header h1 {
+            margin: 0;
         }
 
         nav {
             display: flex;
+            justify-content: center;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 18px;
+            margin-top: 15px;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            font-size: 14px;
+            font-weight: bold;
         }
 
         nav a:hover,
@@ -63,68 +52,95 @@
             color: #60a5fa;
         }
 
-        /* BANNER */
+        .container {
+            display: flex;
+            min-height: 70vh;
+            background-color: white;
+        }
+
+        aside {
+            width: 25%;
+            background-color: #dce8f5;
+            padding: 20px;
+            border-right: 1px solid #c5d5e8;
+        }
+
+        aside h2 {
+            color: #172b46;
+        }
+
+        aside a {
+            display: block;
+            color: #1769aa;
+            text-decoration: none;
+            margin: 12px 0;
+        }
+
+        aside a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            flex: 1;
+            min-width: 0;
+            padding: 25px;
+            background-color: white;
+        }
+
+        h2 {
+            color: #172b46;
+        }
+
         .banner {
             background-color: #203b5d;
             color: white;
-            text-align: center;
-            padding: 45px 20px;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
         }
 
-        .banner h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
+        .banner h2 {
+            color: white;
+            margin-top: 0;
+            font-size: 28px;
         }
 
         .banner p {
             color: #dce8f5;
         }
 
-        /* CONTEÚDO PRINCIPAL */
-        main {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
         .titulo {
-            color: #172b46;
             text-align: center;
-            font-size: 28px;
-            margin-bottom: 10px;
+            color: #172b46;
         }
 
         .descricao {
             text-align: center;
             color: #555;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
-        /* CARTÕES */
         .servicos {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 24px;
+            gap: 20px;
         }
 
         .cartao {
-            background-color: white;
-            border-radius: 12px;
+            background-color: #f8fafc;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 15px #00000012;
-            transition: transform 0.2s;
-        }
-
-        .cartao:hover {
-            transform: translateY(-4px);
+            border: 1px solid #dce8f5;
+            border-bottom: 3px solid #3b82f6;
         }
 
         .imagem {
-            height: 180px;
+            height: 160px;
             background-color: #dce8f5;
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
         }
 
         .imagem img {
@@ -134,22 +150,34 @@
         }
 
         .icone {
-            font-size: 65px;
+            font-size: 55px;
         }
 
         .conteudo {
-            padding: 22px;
+            padding: 20px;
         }
 
-        .conteudo h2 {
+        .conteudo h3 {
             color: #172b46;
-            margin-bottom: 10px;
-            font-size: 22px;
+            margin-top: 0;
         }
 
-        .conteudo p {
-            color: #555;
-            margin-bottom: 15px;
+        .botao {
+            display: inline-block;
+            background-color: #2563eb;
+            color: white;
+            text-decoration: none;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 5px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .botao:hover {
+            background-color: #172b46;
         }
 
         details {
@@ -166,7 +194,7 @@
         }
 
         details p {
-            margin: 10px 0 0;
+            margin-bottom: 0;
         }
 
         mark {
@@ -174,39 +202,18 @@
             padding: 2px 4px;
         }
 
-        /* BOTÕES */
-        .botao {
-            display: inline-block;
-            background-color: #2563eb;
-            color: white;
-            text-decoration: none;
-            border: none;
-            padding: 11px 18px;
-            border-radius: 6px;
-            font-size: 15px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        .botao:hover {
-            background-color: #172b46;
-        }
-
-        /* TABELA DE PREÇOS */
-        .secao-precos {
-            background-color: white;
-            padding: 28px;
-            border-radius: 12px;
-            margin-top: 40px;
-            box-shadow: 0 4px 15px #00000010;
+        .secao-precos,
+        .secao-formulario {
+            background-color: #f8fafc;
+            padding: 22px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border: 1px solid #e0e7ef;
         }
 
         .secao-precos h2,
         .secao-formulario h2 {
-            color: #172b46;
             text-align: center;
-            margin-bottom: 20px;
         }
 
         .tabela-container {
@@ -223,9 +230,8 @@
             color: white;
         }
 
-        th,
-        td {
-            padding: 14px;
+        th, td {
+            padding: 12px;
             text-align: left;
             border: 1px solid #d5dce5;
         }
@@ -235,30 +241,14 @@
         }
 
         .status {
-            margin-top: 25px;
-            background-color: #eef4fb;
+            margin-top: 20px;
+            background-color: #e7edf5;
             padding: 15px;
             border-radius: 8px;
         }
 
-        progress,
-        meter {
+        progress {
             max-width: 100%;
-        }
-
-        /* FORMULÁRIO */
-        .secao-formulario {
-            background-color: white;
-            padding: 30px;
-            border-radius: 12px;
-            margin-top: 40px;
-            box-shadow: 0 4px 15px #00000010;
-        }
-
-        .secao-formulario > p {
-            text-align: center;
-            color: #555;
-            margin-bottom: 25px;
         }
 
         form {
@@ -267,7 +257,7 @@
         }
 
         .campo {
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
 
         label {
@@ -277,93 +267,77 @@
             margin-bottom: 6px;
         }
 
-        input,
-        textarea {
+        input, textarea {
             width: 100%;
-            padding: 12px;
+            padding: 11px;
             border: 1px solid #cbd5e1;
-            border-radius: 6px;
+            border-radius: 5px;
             font-family: Arial, sans-serif;
             font-size: 15px;
         }
 
-        input:focus,
-        textarea:focus {
+        input:focus, textarea:focus {
             outline: 2px solid #60a5fa;
-            border-color: #2563eb;
         }
 
         textarea {
             resize: vertical;
         }
 
-        /* RODAPÉ */
+        .voltar {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .voltar a {
+            color: #1769aa;
+        }
+
         footer {
-            background-color: #172b46;
+            background-color: #263b55;
             color: white;
             text-align: center;
-            padding: 25px 15px;
-            margin-top: 50px;
+            padding: 20px;
+            border-radius: 0 0 8px 8px;
         }
 
-        footer p {
-            margin: 5px;
-        }
-
-        footer a {
-            color: #93c5fd;
-            text-decoration: none;
-        }
-
-        /* TABLETS */
-        @media (max-width: 700px) {
+        @media (max-width: 750px) {
             .servicos {
                 grid-template-columns: 1fr;
             }
+        }
 
-            .topo {
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
                 flex-direction: column;
             }
 
-            nav {
-                justify-content: center;
+            aside {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #c5d5e8;
             }
 
-            .banner h1 {
-                font-size: 30px;
-            }
-
-            .secao-precos,
-            .secao-formulario {
-                padding: 20px;
-            }
-        }
-
-        /* CELULARES */
-        @media (max-width: 450px) {
-            header {
-                padding: 20px 12px;
+            main {
+                padding: 18px;
             }
 
             nav {
                 gap: 10px;
             }
 
-            nav a {
-                font-size: 12px;
+            .secao-precos,
+            .secao-formulario {
+                padding: 15px;
             }
 
-            main {
-                padding: 0 12px;
-            }
-
-            .tabela-container {
-                font-size: 13px;
-            }
-
-            th,
-            td {
+            th, td {
                 padding: 8px;
+                font-size: 13px;
             }
         }
     </style>
@@ -373,247 +347,256 @@
 
     <!-- CABEÇALHO -->
     <header>
-        <div class="topo">
+        <h1>TECH Informática</h1>
+        <p>Tecnologia, manutenção e soluções para você.</p>
 
-            <div class="logo">
-                TECH <span>INFORMÁTICA</span>
-            </div>
-
-            <nav>
-                <a href="index.html">Início</a>
-                <a href="sobre.html">Sobre</a>
-                <a href="portifolio.html">Portfólio</a>
-                <a href="produtos.html">Produtos</a>
-                <a href="serviços.html" class="ativo">Serviços</a>
-                <a href="parceiros.html">Parceiros</a>
-                <a href="contatenos.html">Contato</a>
-            </nav>
-
-        </div>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="portifolio.html">Portfólio</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="serviços.html" class="ativo">Serviços</a>
+            <a href="parceiros.html">Parceiros</a>
+            <a href="contatenos.html">Contato</a>
+        </nav>
     </header>
 
-    <!-- BANNER -->
-    <section class="banner">
-        <h1>Nossos Serviços</h1>
-        <p>Oferecemos ajuda no possível. Confira a seguir!</p>
-    </section>
+    <div class="container">
 
-    <main>
+        <!-- BARRA LATERAL -->
+        <aside>
+            <h2>Navegação</h2>
 
-        <!-- SERVIÇOS DISPONÍVEIS -->
-        <section>
-            <h2 class="titulo">O que podemos fazer por você?</h2>
+            <a href="#servicos">Nossos Serviços</a>
+            <a href="#precos">Tabela de Preços</a>
+            <a href="#formulario">Solicitar Serviço</a>
 
-            <p class="descricao">
-                Conheça nossos serviços de tecnologia e informática.
+            <hr>
+
+            <h2>Atendimento</h2>
+            <p>
+                Precisa de ajuda com seu computador ou quer
+                desenvolver um jogo? Conheça nossos serviços.
             </p>
+        </aside>
 
-            <div class="servicos">
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main>
 
-                <!-- CRIAÇÃO DE GAMES -->
-                <article class="cartao">
+            <section class="banner">
+                <h2>Nossos Serviços</h2>
+                <p>
+                    Oferecemos ajuda no possível.
+                    Confira nossos serviços de tecnologia e informática!
+                </p>
+            </section>
 
-                    <div class="imagem">
-                        <img src="games.jpg"
-                             alt="Imagem de desenvolvimento de jogos"
-                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <span class="icone" style="display: none;">🎮</span>
-                    </div>
+            <!-- SERVIÇOS -->
+            <section id="servicos">
+                <h2 class="titulo">O que podemos fazer por você?</h2>
 
-                    <div class="conteudo">
-                        <h2>Criação de Games</h2>
+                <p class="descricao">
+                    Conheça nossos serviços de tecnologia e informática.
+                </p>
 
-                        <p>
-                            Oferecemos ajuda na criação de jogos
-                            de entretenimento e no desenvolvimento
-                            de ideias para games.
-                        </p>
+                <div class="servicos">
 
-                        <a href="#formulario" class="botao">
-                            Tenho interesse
-                        </a>
-                    </div>
+                    <!-- CRIAÇÃO DE GAMES -->
+                    <article class="cartao">
+                        <div class="imagem">
+                            <img
+                                src="games.jpg"
+                                alt="Desenvolvimento de jogos"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
 
-                </article>
+                            <span class="icone" style="display:none;">🎮</span>
+                        </div>
 
-                <!-- CONSERTO DE PC -->
-                <article class="cartao">
-
-                    <div class="imagem">
-                        <span class="icone">🔧</span>
-                    </div>
-
-                    <div class="conteudo">
-                        <h2>Conserto de PC</h2>
-
-                        <p>
-                            Ajudamos a identificar problemas em
-                            computadores, peças e programas.
-                        </p>
-
-                        <details>
-                            <summary>O que consertamos?</summary>
+                        <div class="conteudo">
+                            <h3>Criação de Games</h3>
 
                             <p>
-                                Hardware, formatação,
-                                <mark>remoção de vírus</mark>,
-                                instalação de programas e otimização.
+                                Oferecemos ajuda na criação de jogos
+                                de entretenimento e no desenvolvimento
+                                de ideias para games.
                             </p>
-                        </details>
 
-                        <a href="#formulario" class="botao">
-                            Tenho interesse
-                        </a>
+                            <a href="#formulario" class="botao">
+                                Tenho interesse
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- CONSERTO DE PC -->
+                    <article class="cartao">
+                        <div class="imagem">
+                            <span class="icone">🔧</span>
+                        </div>
+
+                        <div class="conteudo">
+                            <h3>Conserto de PC</h3>
+
+                            <p>
+                                Ajudamos a identificar problemas em
+                                computadores, peças e programas.
+                            </p>
+
+                            <details>
+                                <summary>O que consertamos?</summary>
+
+                                <p>
+                                    Hardware, formatação,
+                                    <mark>remoção de vírus</mark>,
+                                    instalação de programas e otimização.
+                                </p>
+                            </details>
+
+                            <a href="#formulario" class="botao">
+                                Tenho interesse
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- TABELA DE PREÇOS -->
+            <section class="secao-precos" id="precos">
+                <h2>Tabela de Preços</h2>
+
+                <div class="tabela-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Serviço</th>
+                                <th>Tempo estimado</th>
+                                <th>Preço</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Criação de Games</td>
+                                <td>5 horas</td>
+                                <td>R$ 100,00</td>
+                            </tr>
+
+                            <tr>
+                                <td>Conserto de PC</td>
+                                <td>3 horas</td>
+                                <td>R$ 75,00 (variável)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="status">
+                    <p><strong>Status ilustrativo dos serviços:</strong></p>
+
+                    <p>
+                        Progresso:
+                        <progress value="8" max="10"></progress>
+                    </p>
+
+                    <p>
+                        Conclusão estimada:
+                        <meter value="0.8" min="0" max="1">80%</meter>
+                        80%
+                    </p>
+                </div>
+            </section>
+
+            <!-- FORMULÁRIO -->
+            <section class="secao-formulario" id="formulario">
+                <h2>Solicite um Serviço</h2>
+
+                <p style="text-align:center;">
+                    Preencha seus dados e informe o serviço desejado.
+                </p>
+
+                <form action="#" method="post">
+
+                    <div class="campo">
+                        <label for="nome">Nome:</label>
+                        <input
+                            type="text"
+                            id="nome"
+                            name="nome"
+                            placeholder="Digite seu nome"
+                            required>
                     </div>
 
-                </article>
+                    <div class="campo">
+                        <label for="email">E-mail:</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Digite seu e-mail"
+                            required>
+                    </div>
 
-            </div>
-        </section>
+                    <div class="campo">
+                        <label for="tel">Telefone:</label>
+                        <input
+                            type="tel"
+                            id="tel"
+                            name="tel"
+                            placeholder="Digite seu telefone">
+                    </div>
 
-        <!-- TABELA DE PREÇOS -->
-        <section class="secao-precos">
+                    <div class="campo">
+                        <label for="servico-escolhido">
+                            Serviço desejado:
+                        </label>
 
-            <h2>Tabela de Preços</h2>
+                        <input
+                            type="text"
+                            id="servico-escolhido"
+                            name="servico"
+                            list="lista-servicos"
+                            placeholder="Escolha ou digite um serviço"
+                            required>
 
-            <div class="tabela-container">
-                <table>
+                        <datalist id="lista-servicos">
+                            <option value="Criação de Games">
+                            <option value="Conserto de PC">
+                            <option value="Formatação">
+                            <option value="Remoção de Vírus">
+                            <option value="Instalação de Programas">
+                        </datalist>
+                    </div>
 
-                    <thead>
-                        <tr>
-                            <th>Serviço</th>
-                            <th>Tempo estimado</th>
-                            <th>Preço</th>
-                        </tr>
-                    </thead>
+                    <div class="campo">
+                        <label for="mensagem">Mensagem:</label>
 
-                    <tbody>
-                        <tr>
-                            <td>Criação de Games</td>
-                            <td>5 horas</td>
-                            <td>R$ 100,00</td>
-                        </tr>
+                        <textarea
+                            id="mensagem"
+                            name="mensagem"
+                            rows="5"
+                            placeholder="Descreva o que você precisa"
+                            required></textarea>
+                    </div>
 
-                        <tr>
-                            <td>Conserto de PC</td>
-                            <td>3 horas</td>
-                            <td>R$ 75,00 (variável)</td>
-                        </tr>
-                    </tbody>
+                    <button type="submit" class="botao">
+                        Enviar solicitação
+                    </button>
 
-                </table>
-            </div>
+                </form>
+            </section>
 
-            <div class="status">
-                <p>
-                    <strong>Status ilustrativo dos serviços:</strong>
-                </p>
-
-                <p>
-                    Progresso:
-                    <progress value="8" max="10"></progress>
-                </p>
-
-                <p>
-                    Conclusão estimada:
-                    <meter value="0.8" min="0" max="1">80%</meter>
-                    80%
-                </p>
-            </div>
-
-        </section>
-
-        <!-- FORMULÁRIO -->
-        <section class="secao-formulario" id="formulario">
-
-            <h2>Solicite um Serviço</h2>
-
-            <p>
-                Preencha seus dados e informe o serviço desejado.
+            <p class="voltar">
+                <a href="index.html">Voltar ao início</a>
             </p>
 
-            <form action="#" method="post">
-
-                <div class="campo">
-                    <label for="nome">Nome:</label>
-                    <input type="text"
-                           id="nome"
-                           name="nome"
-                           placeholder="Digite seu nome"
-                           required>
-                </div>
-
-                <div class="campo">
-                    <label for="email">E-mail:</label>
-                    <input type="email"
-                           id="email"
-                           name="email"
-                           placeholder="Digite seu e-mail"
-                           required>
-                </div>
-
-                <div class="campo">
-                    <label for="tel">Telefone:</label>
-                    <input type="tel"
-                           id="tel"
-                           name="tel"
-                           placeholder="Digite seu telefone">
-                </div>
-
-                <div class="campo">
-                    <label for="servico">Serviço desejado:</label>
-
-                    <input type="text"
-                           id="servico"
-                           name="servico"
-                           list="lista-servicos"
-                           placeholder="Escolha ou digite um serviço"
-                           required>
-
-                    <datalist id="lista-servicos">
-                        <option value="Criação de Games">
-                        <option value="Conserto de PC">
-                        <option value="Formatação">
-                        <option value="Remoção de Vírus">
-                        <option value="Instalação de Programas">
-                    </datalist>
-                </div>
-
-                <div class="campo">
-                    <label for="mensagem">Mensagem:</label>
-
-                    <textarea id="mensagem"
-                              name="mensagem"
-                              rows="5"
-                              placeholder="Descreva o que você precisa"
-                              required></textarea>
-                </div>
-
-                <button type="submit" class="botao">
-                    Enviar solicitação
-                </button>
-
-            </form>
-
-        </section>
-
-        <!-- VOLTAR AO CURRÍCULO -->
-        <p style="text-align: center; margin-top: 30px;">
-            <a href="index.html">Voltar ao currículo</a>
-        </p>
-
-    </main>
+        </main>
+    </div>
 
     <!-- RODAPÉ -->
     <footer>
-        <p><strong>TECH INFORMÁTICA</strong></p>
+        <p><strong>TECH Informática</strong></p>
         <p>&copy; 2026 - Todos os direitos reservados.</p>
-        <p>
-            Atualizado em
-            <time datetime="2026-10-22">22/10/2026</time>
-        </p>
     </footer>
 
 </body>
-
 </html>

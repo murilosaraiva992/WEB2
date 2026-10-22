@@ -1,24 +1,24 @@
 
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Produtos - TECH Informática</title>
 
     <style>
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         body {
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
             color: #333;
+            margin: 0;
+            padding: 20px;
             line-height: 1.6;
         }
 
@@ -26,206 +26,234 @@
         header {
             background-color: #172b46;
             color: white;
-            padding: 20px 7%;
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
         }
 
-        .topo {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .logo {
-            font-size: 23px;
-            font-weight: bold;
-        }
-
-        .logo span {
-            color: #60a5fa;
+        header h1 {
+            margin: 0;
         }
 
         nav {
             display: flex;
+            justify-content: center;
             flex-wrap: wrap;
-            gap: 16px;
+            gap: 18px;
+            margin-top: 15px;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            font-size: 14px;
+            font-weight: bold;
         }
 
-        nav a:hover {
+        nav a:hover,
+        nav a.ativo {
             color: #60a5fa;
         }
 
-        /* BANNER */
+        /* ESTRUTURA PRINCIPAL */
+        .container {
+            display: flex;
+            min-height: 70vh;
+            background-color: white;
+        }
+
+        /* BARRA LATERAL */
+        aside {
+            width: 25%;
+            background-color: #dce8f5;
+            padding: 20px;
+            border-right: 1px solid #c5d5e8;
+        }
+
+        aside h2 {
+            color: #172b46;
+        }
+
+        aside a {
+            display: block;
+            color: #1769aa;
+            text-decoration: none;
+            margin: 12px 0;
+        }
+
+        aside a:hover {
+            text-decoration: underline;
+        }
+
+        /* CONTEÚDO */
+        main {
+            flex: 1;
+            min-width: 0;
+            background-color: white;
+            padding: 25px;
+        }
+
         .banner {
             background-color: #172b46;
             color: white;
             text-align: center;
-            padding: 45px 20px;
-            border-top: 1px solid #354b68;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
         }
 
-        .banner h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
+        .banner h2 {
+            color: white;
+            margin-top: 0;
+            font-size: 28px;
         }
 
         .banner p {
             color: #dce8f5;
         }
 
-        /* CONTEÚDO */
-        main {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
         .titulo {
             color: #172b46;
             text-align: center;
-            font-size: 28px;
             margin-bottom: 10px;
         }
 
         .descricao {
             text-align: center;
             color: #555;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
-        /* CARTÕES */
+        /* CARTÕES DE PRODUTOS */
         .produtos {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 24px;
+            gap: 18px;
         }
 
         .cartao {
-            background-color: white;
-            border-radius: 12px;
+            background-color: #f8fafc;
+            border: 1px solid #dce8f5;
+            border-bottom: 3px solid #3b82f6;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 15px #00000012;
-            transition: transform 0.2s;
-        }
-
-        .cartao:hover {
-            transform: translateY(-5px);
+            text-align: center;
         }
 
         .imagem {
-            height: 190px;
+            height: 140px;
             background-color: #dce8f5;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 65px;
+            font-size: 55px;
         }
 
         .conteudo {
-            padding: 22px;
-            text-align: center;
+            padding: 18px;
         }
 
         .conteudo h3 {
             color: #172b46;
-            margin-bottom: 10px;
+            margin-top: 0;
         }
 
         .conteudo p {
             color: #555;
             font-size: 14px;
-            margin-bottom: 15px;
         }
 
         .preco {
             color: #2563eb;
-            font-size: 25px;
+            font-size: 23px;
             font-weight: bold;
             margin: 15px 0;
         }
 
+        /* BOTÕES */
         .botao {
             display: inline-block;
             background-color: #2563eb;
             color: white;
             text-decoration: none;
-            padding: 10px 18px;
-            border-radius: 6px;
+            padding: 10px 14px;
+            border-radius: 5px;
             font-weight: bold;
+            margin-top: 8px;
         }
 
         .botao:hover {
             background-color: #172b46;
         }
 
-        /* AVISO */
+        /* AVISO DE CONTATO */
         .aviso {
             background-color: #e7edf5;
             text-align: center;
-            padding: 25px;
-            border-radius: 10px;
-            margin-top: 40px;
+            padding: 22px;
+            border-left: 5px solid #3b82f6;
+            border-radius: 8px;
+            margin-top: 30px;
         }
 
         .aviso h2 {
             color: #172b46;
-            margin-bottom: 10px;
         }
 
         .aviso a {
-            color: #2563eb;
+            color: #1769aa;
             font-weight: bold;
+        }
+
+        .voltar {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .voltar a {
+            color: #1769aa;
         }
 
         /* RODAPÉ */
         footer {
-            background-color: #172b46;
+            background-color: #263b55;
             color: white;
             text-align: center;
-            padding: 25px 15px;
-            margin-top: 50px;
+            padding: 20px;
+            border-radius: 0 0 8px 8px;
         }
 
-        footer a {
-            color: #93c5fd;
-            text-decoration: none;
-        }
-
-        /* TABLETS */
-        @media (max-width: 850px) {
+        /* RESPONSIVIDADE */
+        @media (max-width: 900px) {
             .produtos {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
 
-        /* CELULARES */
         @media (max-width: 600px) {
-            header {
-                padding: 20px;
+            body {
+                padding: 10px;
             }
 
-            .topo {
+            .container {
                 flex-direction: column;
             }
 
-            nav {
-                justify-content: center;
-                gap: 12px;
+            aside {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #c5d5e8;
             }
 
-            .banner h1 {
-                font-size: 30px;
+            main {
+                padding: 18px;
             }
 
             .produtos {
                 grid-template-columns: 1fr;
+            }
+
+            nav {
+                gap: 10px;
             }
         }
     </style>
@@ -235,136 +263,151 @@
 
     <!-- CABEÇALHO -->
     <header>
-        <div class="topo">
+        <h1>TECH Informática</h1>
+        <p>Tecnologia, manutenção e soluções para você.</p>
 
-            <div class="logo">
-                TECH <span>INFORMÁTICA</span>
-            </div>
-
-            <nav>
-                <a href="index.html">Início</a>
-                <a href="sobre.html">Sobre</a>
-                <a href="portifolio.html">Portfólio</a>
-                <a href="produtos.html">Produtos</a>
-                <a href="serviços.html">Serviços</a>
-                <a href="parceiros.html">Parceiros</a>
-                <a href="contatenos.html">Contato</a>
-            </nav>
-
-        </div>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="portifolio.html">Portfólio</a>
+            <a href="produtos.html" class="ativo">Produtos</a>
+            <a href="serviços.html">Serviços</a>
+            <a href="parceiros.html">Parceiros</a>
+            <a href="contatenos.html">Contato</a>
+        </nav>
     </header>
 
-    <!-- BANNER -->
-    <section class="banner">
-        <h1>Nossos Produtos</h1>
-        <p>Soluções em informática para você e seu computador.</p>
-    </section>
+    <div class="container">
 
-    <main>
+        <!-- BARRA LATERAL -->
+        <aside>
+            <h2>Navegação</h2>
 
-        <h2 class="titulo">Conheça nossos produtos</h2>
+            <a href="#lista-produtos">Nossos Produtos</a>
+            <a href="#teclado">Teclado</a>
+            <a href="#mouse">Mouse</a>
+            <a href="#fone">Fone de ouvido</a>
+            <a href="#contato">Precisa de ajuda?</a>
 
-        <p class="descricao">
-            Confira algumas das opções disponíveis na TECH Informática.
-        </p>
+            <hr>
 
-        <section class="produtos">
-
-            <!-- PRODUTO 1 -->
-            <article class="cartao">
-
-                <div class="imagem">⌨️</div>
-
-                <div class="conteudo">
-                    <h3>Teclado</h3>
-
-                    <p>
-                        Teclado para uso diário, estudos e atividades
-                        no computador.
-                    </p>
-
-                    <div class="preco">R$ 25,00</div>
-
-                    <a href="contatenos.html" class="botao">
-                        Tenho interesse
-                    </a>
-                </div>
-
-            </article>
-
-            <!-- PRODUTO 2 -->
-            <article class="cartao">
-
-                <div class="imagem">🖱️</div>
-
-                <div class="conteudo">
-                    <h3>Mouse</h3>
-
-                    <p>
-                        Mouse para facilitar a navegação e as tarefas
-                        do dia a dia.
-                    </p>
-
-                    <div class="preco">R$ 30,50</div>
-
-                    <a href="contatenos.html" class="botao">
-                        Tenho interesse
-                    </a>
-                </div>
-
-            </article>
-
-            <!-- PRODUTO 3 -->
-            <article class="cartao">
-
-                <div class="imagem">🎧</div>
-
-                <div class="conteudo">
-                    <h3>Fone de ouvido</h3>
-
-                    <p>
-                        Fone para ouvir músicas, assistir a vídeos
-                        e participar de chamadas.
-                    </p>
-
-                    <div class="preco">R$ 20,50</div>
-
-                    <a href="contatenos.html" class="botao">
-                        Tenho interesse
-                    </a>
-                </div>
-
-            </article>
-
-        </section>
-
-        <!-- CONTATO -->
-        <section class="aviso">
-
-            <h2>Precisa de ajuda para escolher?</h2>
+            <h2>Sobre os produtos</h2>
 
             <p>
-                Entre em contato para tirar dúvidas sobre nossos produtos.
+                Confira nossos acessórios de informática
+                para estudar, trabalhar e se divertir.
+            </p>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main>
+
+            <section class="banner">
+                <h2>Nossos Produtos</h2>
+                <p>
+                    Soluções em informática para você e seu computador.
+                </p>
+            </section>
+
+            <section id="lista-produtos">
+                <h2 class="titulo">Conheça nossos produtos</h2>
+
+                <p class="descricao">
+                    Confira algumas das opções disponíveis
+                    na TECH Informática.
+                </p>
+
+                <div class="produtos">
+
+                    <!-- TECLADO -->
+                    <article class="cartao" id="teclado">
+                        <div class="imagem">⌨️</div>
+
+                        <div class="conteudo">
+                            <h3>Teclado</h3>
+
+                            <p>
+                                Teclado para uso diário, estudos
+                                e atividades no computador.
+                            </p>
+
+                            <div class="preco">R$ 25,00</div>
+
+                            <a href="contatenos.html" class="botao">
+                                Tenho interesse
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- MOUSE -->
+                    <article class="cartao" id="mouse">
+                        <div class="imagem">🖱️</div>
+
+                        <div class="conteudo">
+                            <h3>Mouse</h3>
+
+                            <p>
+                                Mouse para facilitar a navegação
+                                e as tarefas do dia a dia.
+                            </p>
+
+                            <div class="preco">R$ 30,50</div>
+
+                            <a href="contatenos.html" class="botao">
+                                Tenho interesse
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- FONE -->
+                    <article class="cartao" id="fone">
+                        <div class="imagem">🎧</div>
+
+                        <div class="conteudo">
+                            <h3>Fone de ouvido</h3>
+
+                            <p>
+                                Fone para ouvir músicas, assistir
+                                a vídeos e participar de chamadas.
+                            </p>
+
+                            <div class="preco">R$ 20,50</div>
+
+                            <a href="contatenos.html" class="botao">
+                                Tenho interesse
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- CONTATO -->
+            <section class="aviso" id="contato">
+                <h2>Precisa de ajuda para escolher?</h2>
+
+                <p>
+                    Entre em contato para tirar dúvidas
+                    sobre nossos produtos.
+                </p>
+
+                <p>
+                    <a href="contatenos.html">Fale conosco</a>
+                </p>
+            </section>
+
+            <p class="voltar">
+                <a href="index.html">Voltar ao início</a>
             </p>
 
-            <p>
-                <a href="contatenos.html">Fale conosco</a>
-            </p>
-
-        </section>
-
-        <p style="text-align: center; margin-top: 25px;">
-            <a href="index.html">Voltar ao currículo</a>
-        </p>
-
-    </main>
+        </main>
+    </div>
 
     <!-- RODAPÉ -->
     <footer>
-        <p>&copy; 2026 - TECH Informática</p>
-        <p>Todos os direitos reservados.</p>
+        <p><strong>TECH Informática</strong></p>
+        <p>&copy; 2026 - Todos os direitos reservados.</p>
     </footer>
 
 </body>
-
 </html>

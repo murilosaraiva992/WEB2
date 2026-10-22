@@ -11,110 +11,129 @@
     <style>
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         body {
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
             color: #333;
-            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
         }
 
         /* CABEÇALHO */
         header {
+            text-align: center;
             background-color: #172b46;
             color: white;
-            padding: 20px 7%;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
         }
 
-        .topo {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
+        header h1 {
+            color: white;
+            border-bottom: none;
+            margin-bottom: 10px;
         }
 
-        .logo {
-            font-size: 23px;
-            font-weight: bold;
+        header p {
+            margin: 8px;
         }
 
-        .logo span {
-            color: #60a5fa;
-        }
-
+        /* MENU */
         nav {
             display: flex;
             flex-wrap: wrap;
-            gap: 16px;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
         }
 
         nav a {
             color: white;
             text-decoration: none;
             font-size: 14px;
+            font-weight: bold;
+            padding: 10px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
 
         nav a:hover {
-            color: #60a5fa;
+            background-color: #2563eb;
         }
 
-        /* BANNER */
-        .banner {
-            background-color: #172b46;
-            color: white;
-            text-align: center;
-            padding: 45px 20px;
-            border-top: 1px solid #354b68;
+        /* LAYOUT PRINCIPAL */
+        .container {
+            display: flex;
+            min-height: 70vh;
+            background-color: white;
         }
 
-        .banner h1 {
-            font-size: 36px;
+        /* BARRA LATERAL */
+        aside {
+            width: 25%;
+            padding: 20px;
+            background-color: #dce8f5;
+            border-right: 2px solid #999;
+        }
+
+        aside h2 {
+            color: #263b55;
+            margin-bottom: 20px;
+        }
+
+        aside a {
+            display: block;
+            margin-bottom: 15px;
+            color: #1769aa;
+            text-decoration: none;
+        }
+
+        aside a:hover {
+            text-decoration: underline;
+        }
+
+        /* CONTEÚDO */
+        main {
+            flex: 1;
+            padding: 25px;
+            background-color: white;
+            min-width: 0;
+        }
+
+        main h2 {
+            color: #263b55;
             margin-bottom: 10px;
         }
 
-        .banner p {
-            color: #dce8f5;
-        }
-
-        /* CONTEÚDO PRINCIPAL */
-        main {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
+        main p {
+            margin-bottom: 15px;
         }
 
         .introducao {
-            text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
-        .introducao h2 {
-            color: #172b46;
-            margin-bottom: 8px;
-        }
-
+        /* ORGANIZAÇÃO DO FORMULÁRIO E CARTÕES */
         .conteudo {
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 25px;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 20px;
             align-items: start;
+            margin-top: 25px;
         }
 
         /* FORMULÁRIO */
         .formulario {
-            background-color: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px #00000010;
+            background-color: #f8fafc;
+            padding: 22px;
+            border: 1px solid #dce3ec;
+            border-radius: 10px;
         }
 
         .formulario h2 {
-            color: #172b46;
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
         label {
@@ -126,12 +145,12 @@
         input,
         textarea {
             width: 100%;
-            padding: 12px;
+            padding: 11px;
             border: 1px solid #cbd5e1;
             border-radius: 6px;
             font-family: Arial, sans-serif;
             font-size: 15px;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
 
         input:focus,
@@ -146,12 +165,12 @@
 
         button {
             width: 100%;
-            padding: 13px;
+            padding: 12px;
             background-color: #2563eb;
             color: white;
             border: none;
             border-radius: 6px;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: bold;
             cursor: pointer;
         }
@@ -164,19 +183,19 @@
         .cartoes {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 18px;
+            gap: 15px;
         }
 
         .cartao {
-            background-color: white;
-            padding: 25px;
+            background-color: #f8fafc;
+            padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 15px #00000010;
+            border: 1px solid #dce3ec;
             border-left: 4px solid #3b82f6;
         }
 
         .icone {
-            font-size: 30px;
+            font-size: 28px;
             margin-bottom: 8px;
         }
 
@@ -186,7 +205,7 @@
         }
 
         .cartao p {
-            color: #555;
+            margin-bottom: 0;
             overflow-wrap: anywhere;
         }
 
@@ -198,7 +217,7 @@
         /* CURRÍCULO */
         .curriculo {
             text-align: center;
-            margin-top: 35px;
+            margin-top: 25px;
         }
 
         .curriculo a {
@@ -217,34 +236,60 @@
 
         /* RODAPÉ */
         footer {
-            background-color: #172b46;
+            background-color: #263b55;
             color: white;
             text-align: center;
-            padding: 22px;
-            margin-top: 50px;
+            padding: 20px;
+            border-top: 2px solid #111827;
+            border-radius: 0 0 10px 10px;
         }
 
-        /* ADAPTAÇÃO PARA CELULAR */
-        @media (max-width: 700px) {
-            .topo {
-                flex-direction: column;
-            }
+        footer p {
+            margin: 0;
+        }
 
-            nav {
-                justify-content: center;
-                gap: 12px;
-            }
-
-            .banner h1 {
-                font-size: 29px;
+        /* TABLETS */
+        @media (max-width: 900px) {
+            aside {
+                width: 30%;
             }
 
             .conteudo {
                 grid-template-columns: 1fr;
             }
+        }
+
+        /* CELULARES */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            nav {
+                gap: 5px;
+            }
+
+            nav a {
+                font-size: 12px;
+                padding: 8px;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            aside {
+                width: 100%;
+                border-right: none;
+                border-bottom: 2px solid #999;
+            }
+
+            main {
+                padding: 15px;
+            }
 
             .formulario {
-                padding: 22px;
+                padding: 16px;
             }
         }
     </style>
@@ -252,134 +297,148 @@
 
 <body>
 
-    <!-- CABEÇALHO E MENU -->
+    <!-- CABEÇALHO -->
     <header>
-        <div class="topo">
+        <h1>TECH Informática</h1>
+        <p>Entre em contato conosco!</p>
 
-            <div class="logo">
-                TECH <span>INFORMÁTICA</span>
-            </div>
-
-            <nav>
-                <a href="index.html">Início</a>
-                <a href="sobre.html">Sobre</a>
-                <a href="portifolio.html">Portfólio</a>
-                <a href="produtos.html">Produtos</a>
-                <a href="serviços.html">Serviços</a>
-                <a href="parceiros.html">Parceiros</a>
-                <a href="contatenos.html">Contato</a>
-            </nav>
-
-        </div>
+        <!-- MENU DE NAVEGAÇÃO -->
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="portifolio.html">Portfólio</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="serviços.html">Serviços</a>
+            <a href="parceiros.html">Parceiros</a>
+            <a href="contatenos.html">Contato</a>
+        </nav>
     </header>
 
-    <!-- BANNER -->
-    <section class="banner">
-        <h1>Vamos conversar?</h1>
-        <p>
-            Precisa de ajuda com seu computador?
-            Entre em contato conosco.
-        </p>
-    </section>
+    <div class="container">
 
-    <!-- CONTEÚDO -->
-    <main>
+        <!-- BARRA LATERAL -->
+        <aside>
+            <h2>Sites</h2>
 
-        <section class="introducao">
-            <h2>Estamos aqui para ajudar!</h2>
-            <p>
-                Preencha o formulário e conte como podemos ajudar você.
-            </p>
-        </section>
+            <a href="index.html">Início / Currículo</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="contatenos.html">Contate-nos</a>
+            <a href="parceiros.html">Parceiros</a>
+            <a href="portifolio.html">Portfólio</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="serviços.html">Serviços</a>
+        </aside>
 
-        <div class="conteudo">
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main>
 
-            <!-- FORMULÁRIO -->
-            <section class="formulario">
+            <section class="introducao">
+                <h2>Vamos conversar?</h2>
 
-                <h2>Envie sua mensagem</h2>
+                <p>
+                    Precisa de ajuda com seu computador?
+                    Entre em contato conosco.
+                </p>
 
-                <form action="#" method="post">
-
-                    <label for="nome">Nome completo:</label>
-                    <input
-                        type="text"
-                        id="nome"
-                        name="nome"
-                        placeholder="Digite seu nome"
-                        required
-                    >
-
-                    <label for="email">E-mail:</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="seuemail@exemplo.com"
-                        required
-                    >
-
-                    <label for="assunto">Assunto:</label>
-                    <input
-                        type="text"
-                        id="assunto"
-                        name="assunto"
-                        placeholder="Sobre o que deseja falar?"
-                        required
-                    >
-
-                    <label for="mensagem">Mensagem:</label>
-                    <textarea
-                        id="mensagem"
-                        name="mensagem"
-                        rows="6"
-                        placeholder="Escreva sua mensagem..."
-                        required
-                    ></textarea>
-
-                    <button type="submit">Enviar mensagem</button>
-
-                </form>
-
+                <p>
+                    Preencha o formulário e conte como podemos ajudar você.
+                </p>
             </section>
 
-            <!-- OUTRAS FORMAS DE CONTATO -->
-            <section class="cartoes">
+            <hr>
 
-                <div class="cartao">
-                    <div class="icone">✉️</div>
-                    <h3>E-mail</h3>
-                    <p>
-                        <a href="mailto:murilosaraiva992@gmail.com">
-                            murilosaraiva992@gmail.com
-                        </a>
-                    </p>
-                </div>
+            <div class="conteudo">
 
-                <div class="cartao">
-                    <div class="icone">📍</div>
-                    <h3>Localização</h3>
-                    <p>Fortaleza - CE</p>
-                </div>
+                <!-- FORMULÁRIO -->
+                <section class="formulario">
 
-                <div class="cartao">
-                    <div class="icone">💻</div>
-                    <h3>Atendimento</h3>
-                    <p>
-                        Computadores, notebooks e acessórios.
-                    </p>
-                </div>
+                    <h2>Envie sua mensagem</h2>
 
+                    <form action="#" method="post">
+
+                        <label for="nome">Nome completo:</label>
+                        <input
+                            type="text"
+                            id="nome"
+                            name="nome"
+                            placeholder="Digite seu nome"
+                            required
+                        >
+
+                        <label for="email">E-mail:</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="seuemail@exemplo.com"
+                            required
+                        >
+
+                        <label for="assunto">Assunto:</label>
+                        <input
+                            type="text"
+                            id="assunto"
+                            name="assunto"
+                            placeholder="Sobre o que deseja falar?"
+                            required
+                        >
+
+                        <label for="mensagem">Mensagem:</label>
+                        <textarea
+                            id="mensagem"
+                            name="mensagem"
+                            rows="6"
+                            placeholder="Escreva sua mensagem..."
+                            required
+                        ></textarea>
+
+                        <button type="submit">
+                            Enviar mensagem
+                        </button>
+
+                    </form>
+
+                </section>
+
+                <!-- OUTRAS FORMAS DE CONTATO -->
+                <section class="cartoes">
+
+                    <article class="cartao">
+                        <div class="icone">✉️</div>
+                        <h3>E-mail</h3>
+                        <p>
+                            <a href="mailto:murilosaraiva992@gmail.com">
+                                murilosaraiva992@gmail.com
+                            </a>
+                        </p>
+                    </article>
+
+                    <article class="cartao">
+                        <div class="icone">📍</div>
+                        <h3>Localização</h3>
+                        <p>Fortaleza - CE</p>
+                    </article>
+
+                    <article class="cartao">
+                        <div class="icone">💻</div>
+                        <h3>Atendimento</h3>
+                        <p>
+                            Computadores, notebooks e acessórios.
+                        </p>
+                    </article>
+
+                </section>
+
+            </div>
+
+            <!-- LINK PARA O CURRÍCULO -->
+            <section class="curriculo">
+                <a href="index.html">Acessar meu currículo</a>
             </section>
 
-        </div>
+        </main>
 
-        <!-- LINK PARA O CURRÍCULO -->
-        <section class="curriculo">
-            <a href="index.html">Acessar meu currículo</a>
-        </section>
-
-    </main>
+    </div>
 
     <!-- RODAPÉ -->
     <footer>
@@ -392,3 +451,4 @@
 </body>
 
 </html>
+

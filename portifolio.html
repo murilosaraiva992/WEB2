@@ -5,20 +5,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Portfólio - TECH Informática</title>
 
     <style>
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         body {
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
             color: #333;
+            margin: 0;
+            padding: 20px;
             line-height: 1.6;
         }
 
@@ -26,93 +25,115 @@
         header {
             background-color: #172b46;
             color: white;
-            padding: 20px 7%;
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
         }
 
-        .topo {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .logo {
-            font-size: 23px;
-            font-weight: bold;
-        }
-
-        .logo span {
-            color: #60a5fa;
+        header h1 {
+            margin: 0;
         }
 
         nav {
             display: flex;
+            justify-content: center;
             flex-wrap: wrap;
-            gap: 16px;
+            gap: 18px;
+            margin-top: 15px;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            font-size: 14px;
+            font-weight: bold;
         }
 
-        nav a:hover {
+        nav a:hover,
+        nav a.ativo {
             color: #60a5fa;
         }
 
-        /* BANNER */
+        /* ESTRUTURA */
+        .container {
+            display: flex;
+            min-height: 70vh;
+            background-color: white;
+        }
+
+        /* BARRA LATERAL */
+        aside {
+            width: 25%;
+            background-color: #dce8f5;
+            padding: 20px;
+            border-right: 1px solid #c5d5e8;
+        }
+
+        aside h2 {
+            color: #172b46;
+        }
+
+        aside a {
+            display: block;
+            color: #1769aa;
+            text-decoration: none;
+            margin: 12px 0;
+        }
+
+        aside a:hover {
+            text-decoration: underline;
+        }
+
+        /* CONTEÚDO PRINCIPAL */
+        main {
+            flex: 1;
+            min-width: 0;
+            background-color: white;
+            padding: 25px;
+        }
+
         .banner {
             background-color: #172b46;
             color: white;
             text-align: center;
-            padding: 50px 20px;
-            border-top: 1px solid #354b68;
+            padding: 30px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
         }
 
-        .banner h1 {
-            font-size: 38px;
-            margin-bottom: 10px;
+        .banner h2 {
+            color: white;
+            font-size: 30px;
+            margin-top: 0;
         }
 
         .banner p {
             color: #dce8f5;
         }
 
-        /* CONTEÚDO */
-        main {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
         .titulo {
             text-align: center;
             color: #172b46;
-            font-size: 28px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .descricao {
             text-align: center;
             color: #555;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         /* SOBRE MIM */
         .sobre {
-            background-color: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px #00000010;
-            margin-bottom: 45px;
+            background-color: #f8fafc;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
             border-left: 5px solid #3b82f6;
         }
 
         .sobre h2 {
             color: #172b46;
-            margin-bottom: 15px;
+            margin-top: 0;
         }
 
         .sobre p {
@@ -122,38 +143,34 @@
         /* PROJETOS */
         .projetos {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 22px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
         }
 
         .cartao {
-            background-color: white;
-            border-radius: 12px;
+            background-color: #f8fafc;
+            border: 1px solid #dce8f5;
+            border-bottom: 3px solid #3b82f6;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 15px #00000010;
-            transition: transform 0.2s;
-        }
-
-        .cartao:hover {
-            transform: translateY(-5px);
         }
 
         .imagem-projeto {
-            height: 160px;
+            height: 120px;
             background-color: #dce8f5;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 55px;
+            font-size: 50px;
         }
 
         .cartao-conteudo {
-            padding: 22px;
+            padding: 18px;
         }
 
         .cartao h3 {
             color: #172b46;
-            margin-bottom: 10px;
+            margin-top: 0;
         }
 
         .cartao p {
@@ -170,48 +187,49 @@
             border-radius: 20px;
             font-size: 12px;
             font-weight: bold;
+            margin: 3px 2px;
         }
 
         /* HABILIDADES */
         .habilidades {
             background-color: #172b46;
             color: white;
-            padding: 30px;
-            border-radius: 12px;
-            margin-top: 45px;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
         }
 
         .habilidades h2 {
             text-align: center;
-            margin-bottom: 22px;
+            margin-top: 0;
         }
 
         .lista-habilidades {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
         }
 
         .habilidade {
             background-color: #2c4565;
             border: 1px solid #526780;
-            padding: 10px 15px;
+            padding: 8px 12px;
             border-radius: 6px;
         }
 
         /* CONTATO */
         .contato {
             background-color: #e7edf5;
-            padding: 35px 20px;
-            margin-top: 40px;
-            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            border-radius: 8px;
             text-align: center;
         }
 
         .contato h2 {
             color: #172b46;
-            margin-bottom: 12px;
+            margin-top: 0;
         }
 
         .contato p {
@@ -219,71 +237,84 @@
             overflow-wrap: anywhere;
         }
 
+        .contato a {
+            color: #1769aa;
+        }
+
         .botao {
             display: inline-block;
             background-color: #2563eb;
-            color: white;
+            color: white !important;
             text-decoration: none;
-            padding: 12px 22px;
-            border-radius: 6px;
+            padding: 10px 18px;
+            border-radius: 5px;
             font-weight: bold;
-            margin-top: 12px;
+            margin: 10px 0;
         }
 
         .botao:hover {
             background-color: #172b46;
         }
 
+        .voltar {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .voltar a {
+            color: #1769aa;
+        }
+
         /* RODAPÉ */
         footer {
-            background-color: #172b46;
+            background-color: #263b55;
             color: white;
             text-align: center;
-            padding: 25px 15px;
-            margin-top: 50px;
+            padding: 20px;
+            border-radius: 0 0 8px 8px;
         }
 
-        footer a {
-            color: #93c5fd;
-            text-decoration: none;
-        }
-
-        /* TABLETS */
+        /* RESPONSIVIDADE */
         @media (max-width: 850px) {
             .projetos {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
 
-        /* CELULARES */
         @media (max-width: 600px) {
-            header {
-                padding: 20px;
+            body {
+                padding: 10px;
             }
 
-            .topo {
+            .container {
                 flex-direction: column;
             }
 
-            nav {
-                justify-content: center;
-                gap: 12px;
+            aside {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #c5d5e8;
             }
 
-            .banner h1 {
-                font-size: 30px;
+            main {
+                padding: 18px;
             }
 
             .projetos {
                 grid-template-columns: 1fr;
             }
 
-            .sobre {
-                padding: 22px;
+            nav {
+                gap: 10px;
             }
 
+            .banner h2 {
+                font-size: 25px;
+            }
+
+            .sobre,
             .habilidades {
-                padding: 22px;
+                padding: 18px;
             }
         }
     </style>
@@ -291,203 +322,195 @@
 
 <body>
 
-    <!-- CABEÇALHO E MENU -->
+    <!-- CABEÇALHO -->
     <header>
-        <div class="topo">
+        <h1>TECH Informática</h1>
+        <p>Tecnologia, manutenção e soluções para você.</p>
 
-            <div class="logo">
-                TECH <span>INFORMÁTICA</span>
-            </div>
-
-            <nav>
-                <a href="index.html">Início</a>
-                <a href="sobre.html">Sobre</a>
-                <a href="portifolio.html">Portfólio</a>
-                <a href="produtos.html">Produtos</a>
-                <a href="serviços.html">Serviços</a>
-                <a href="parceiros.html">Parceiros</a>
-                <a href="contatenos.html">Contato</a>
-            </nav>
-
-        </div>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="portifolio.html" class="ativo">Portfólio</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="serviços.html">Serviços</a>
+            <a href="parceiros.html">Parceiros</a>
+            <a href="contatenos.html">Contato</a>
+        </nav>
     </header>
 
-    <!-- BANNER -->
-    <section class="banner">
-        <h1>Meu Portfólio</h1>
+    <div class="container">
 
-        <p>
-            Técnico em Informática | Suporte |
-            Desenvolvimento de Jogos 2D
-        </p>
-    </section>
+        <!-- BARRA LATERAL -->
+        <aside>
+            <h2>Navegação</h2>
 
-    <main>
+            <a href="#sobre">Sobre Mim</a>
+            <a href="#projetos">Meus Projetos</a>
+            <a href="#habilidades">Minhas Habilidades</a>
+            <a href="#contato">Contato</a>
 
-        <!-- SOBRE MIM -->
-        <section class="sobre">
+            <hr>
 
-            <h2>Sobre Mim</h2>
+            <h2>Meu objetivo</h2>
 
             <p>
-                Olá! Sou estudante de Lógica de Programação
-                e apaixonado por tecnologia.
+                Aprender cada vez mais sobre tecnologia,
+                desenvolver projetos e conquistar minha
+                primeira oportunidade na área de informática.
+            </p>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main>
+
+            <!-- BANNER -->
+            <section class="banner">
+                <h2>Meu Portfólio</h2>
+
+                <p>
+                    Técnico em Informática | Suporte |
+                    Desenvolvimento de Jogos 2D
+                </p>
+            </section>
+
+            <!-- SOBRE MIM -->
+            <section class="sobre" id="sobre">
+                <h2>Sobre Mim</h2>
+
+                <p>
+                    Olá! Sou estudante de Lógica de Programação
+                    e apaixonado por tecnologia.
+                </p>
+
+                <p>
+                    Tenho interesse em suporte técnico para computadores
+                    e estou desenvolvendo meu primeiro jogo 2D com
+                    máquina de estados usando GDScript.
+                </p>
+
+                <p>
+                    Busco minha primeira oportunidade na área de
+                    Tecnologia da Informação para aprender e desenvolver
+                    minhas habilidades.
+                </p>
+            </section>
+
+            <!-- PROJETOS -->
+            <section id="projetos">
+                <h2 class="titulo">Meus Projetos</h2>
+
+                <p class="descricao">
+                    Conheça alguns dos meus estudos e projetos de tecnologia.
+                </p>
+
+                <div class="projetos">
+
+                    <article class="cartao">
+                        <div class="imagem-projeto">🌐</div>
+
+                        <div class="cartao-conteudo">
+                            <h3>Site TechHelp</h3>
+
+                            <p>
+                                Desenvolvimento de um site para uma empresa
+                                de informática, com páginas de apresentação,
+                                produtos, parceiros e contato.
+                            </p>
+
+                            <span class="tecnologia">HTML5</span>
+                            <span class="tecnologia">CSS</span>
+                        </div>
+                    </article>
+
+                    <article class="cartao">
+                        <div class="imagem-projeto">🎮</div>
+
+                        <div class="cartao-conteudo">
+                            <h3>Máquina de Estados 2D</h3>
+
+                            <p>
+                                Projeto de jogo 2D com estados de animação
+                                e movimentação, incluindo idle, walk e run.
+                            </p>
+
+                            <span class="tecnologia">Godot</span>
+                            <span class="tecnologia">GDScript</span>
+                        </div>
+                    </article>
+
+                    <article class="cartao">
+                        <div class="imagem-projeto">🐍</div>
+
+                        <div class="cartao-conteudo">
+                            <h3>Exercícios de Lógica</h3>
+
+                            <p>
+                                Estudos de algoritmos, condicionais,
+                                estruturas de repetição e resolução
+                                de problemas.
+                            </p>
+
+                            <span class="tecnologia">Portugol</span>
+                            <span class="tecnologia">Lógica</span>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- HABILIDADES -->
+            <section class="habilidades" id="habilidades">
+                <h2>Minhas Habilidades</h2>
+
+                <div class="lista-habilidades">
+                    <span class="habilidade">HTML5</span>
+                    <span class="habilidade">CSS</span>
+                    <span class="habilidade">Lógica de Programação</span>
+                    <span class="habilidade">Portugol</span>
+                    <span class="habilidade">Godot</span>
+                    <span class="habilidade">GDScript</span>
+                    <span class="habilidade">Manutenção de Computadores</span>
+                    <span class="habilidade">Formatação</span>
+                </div>
+            </section>
+
+            <!-- CONTATO -->
+            <section class="contato" id="contato">
+                <h2>Vamos conversar?</h2>
+
+                <p>
+                    Tem alguma dúvida ou deseja entrar em contato?
+                </p>
+
+                <a href="contatenos.html" class="botao">
+                    Entre em contato
+                </a>
+
+                <p>
+                    <strong>E-mail:</strong>
+                    <a href="mailto:murilosaraiva992@gmail.com">
+                        murilosaraiva992@gmail.com
+                    </a>
+                </p>
+
+                <p>
+                    <strong>Telefone:</strong>
+                    (85) 4521-1543
+                </p>
+            </section>
+
+            <p class="voltar">
+                <a href="index.html">Voltar ao início</a>
             </p>
 
-            <p>
-                Tenho interesse em suporte técnico para computadores
-                e estou desenvolvendo meu primeiro jogo 2D com
-                máquina de estados usando GDScript.
-            </p>
-
-            <p>
-                Busco minha primeira oportunidade na área de
-                Tecnologia da Informação para aprender e desenvolver
-                minhas habilidades.
-            </p>
-
-        </section>
-
-        <!-- PROJETOS -->
-        <section id="projetos">
-
-            <h2 class="titulo">Meus Projetos</h2>
-
-            <p class="descricao">
-                Conheça alguns dos meus estudos e projetos de tecnologia.
-            </p>
-
-            <div class="projetos">
-
-                <article class="cartao">
-
-                    <div class="imagem-projeto">🌐</div>
-
-                    <div class="cartao-conteudo">
-
-                        <h3>Site TechHelp</h3>
-
-                        <p>
-                            Desenvolvimento de um site para uma empresa
-                            de informática, com páginas de apresentação,
-                            produtos, parceiros e contato.
-                        </p>
-
-                        <span class="tecnologia">HTML5</span>
-                        <span class="tecnologia">CSS</span>
-
-                    </div>
-
-                </article>
-
-                <article class="cartao">
-
-                    <div class="imagem-projeto">🎮</div>
-
-                    <div class="cartao-conteudo">
-
-                        <h3>Máquina de Estados 2D</h3>
-
-                        <p>
-                            Projeto de jogo 2D com estados de animação
-                            e movimentação, incluindo idle, walk e run.
-                        </p>
-
-                        <span class="tecnologia">Godot</span>
-                        <span class="tecnologia">GDScript</span>
-
-                    </div>
-
-                </article>
-
-                <article class="cartao">
-
-                    <div class="imagem-projeto">🐍</div>
-
-                    <div class="cartao-conteudo">
-
-                        <h3>Exercícios de Lógica</h3>
-
-                        <p>
-                            Estudos de algoritmos, condicionais,
-                            estruturas de repetição e resolução
-                            de problemas.
-                        </p>
-
-                        <span class="tecnologia">Portugol</span>
-                        <span class="tecnologia">Lógica</span>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-        <!-- HABILIDADES -->
-        <section class="habilidades">
-
-            <h2>Minhas Habilidades</h2>
-
-            <div class="lista-habilidades">
-
-                <span class="habilidade">HTML5</span>
-                <span class="habilidade">CSS</span>
-                <span class="habilidade">Lógica de Programação</span>
-                <span class="habilidade">Portugol</span>
-                <span class="habilidade">Godot</span>
-                <span class="habilidade">GDScript</span>
-                <span class="habilidade">Manutenção de Computadores</span>
-                <span class="habilidade">Formatação</span>
-
-            </div>
-
-        </section>
-
-        <!-- CONTATO -->
-        <section class="contato">
-
-            <h2>Vamos conversar?</h2>
-
-            <p>
-                Tem alguma dúvida ou deseja entrar em contato?
-            </p>
-
-            <a href="contatenos.html" class="botao">
-                Entre em contato
-            </a>
-
-            <p style="margin-top: 20px;">
-                <strong>E-mail:</strong>
-                murilosaraiva992@gmail.com
-            </p>
-
-            <p>
-                <strong>Telefone:</strong>
-                (85) 4521-1543
-            </p>
-
-        </section>
-
-        <!-- CURRÍCULO -->
-        <section style="text-align: center; margin-top: 30px;">
-            <a href="index.html">Voltar ao currículo</a>
-        </section>
-
-    </main>
+        </main>
+    </div>
 
     <!-- RODAPÉ -->
     <footer>
-        <p>
-            &copy; 2026 - Meu Portfólio
-        </p>
-
-        <p>
-            TECH Informática - Todos os direitos reservados.
-        </p>
+        <p><strong>TECH Informática</strong></p>
+        <p>&copy; 2026 - Todos os direitos reservados.</p>
     </footer>
 
 </body>
-
 </html>
